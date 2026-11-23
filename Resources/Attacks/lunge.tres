@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AttackResource" format=3 uid="uid://ckvfv7sbaednu"]
+
+[ext_resource type="Script" uid="uid://cc7krldh2c0lj" path="res://Scripts/Attack.gd" id="1_2u2gn"]
+
+[resource]
+script = ExtResource("1_2u2gn")
+name = "Lunge"
+damage = 2
+crit_bonus = 1
+mana_cost = 1
+metadata/_custom_type_script = "uid://cc7krldh2c0lj"

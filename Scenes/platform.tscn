@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ght55irapkd2"]
+
+[ext_resource type="Texture2D" uid="uid://cyl3dia3i2f37" path="res://Images/Dungeonplatform.png" id="1_1rc8e"]
+[ext_resource type="Script" uid="uid://c0qhh35dpqckx" path="res://Scripts/platform.gd" id="2_n5262"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(62, 62)
+
+[node name="FightPlatform" type="Sprite2D" unique_id=1268999087]
+texture = ExtResource("1_1rc8e")
+script = ExtResource("2_n5262")
+
+[node name="ClickBox" type="Area2D" parent="." unique_id=951722807]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickBox" unique_id=2035047026]
+visible = false
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Animated" type="AnimatedSprite2D" parent="." unique_id=1629631469]
+autoplay = "default"
+
+[node name="Preview" type="AnimatedSprite2D" parent="." unique_id=124738670]
+modulate = Color(1, 1, 1, 0.45882353)
+autoplay = "default"
+
+[connection signal="input_event" from="ClickBox" to="." method="_on_click_box_input_event"]
+[connection signal="mouse_entered" from="ClickBox" to="." method="_on_click_box_mouse_entered"]
+[connection signal="mouse_exited" from="ClickBox" to="." method="_on_click_box_mouse_exited"]

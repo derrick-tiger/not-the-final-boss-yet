@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AttackResource" format=3 uid="uid://bp3tnu2pqw5b3"]
+
+[ext_resource type="Script" uid="uid://cc7krldh2c0lj" path="res://Scripts/Attack.gd" id="1_enutv"]
+
+[resource]
+script = ExtResource("1_enutv")
+name = "Fireball"
+damage = 4
+crit_bonus = 2
+mana_cost = 2
+metadata/_custom_type_script = "uid://cc7krldh2c0lj"

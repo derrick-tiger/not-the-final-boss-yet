@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://cn5m18sfm47rj"]
+
+[ext_resource type="Texture2D" uid="uid://c0dsvy0k5bdyv" path="res://Images/gold.png" id="1_83mrg"]
+[ext_resource type="Script" uid="uid://c4wjj7ago8o70" path="res://Scripts/preparation.gd" id="1_hcgkq"]
+[ext_resource type="Texture2D" uid="uid://c7y8ymfg3u1o1" path="res://Images/dungeonfloor.png" id="2_qg6o3"]
+[ext_resource type="Texture2D" uid="uid://666g7w8n7kfa" path="res://Images/panel.png" id="3_7a1ku"]
+[ext_resource type="PackedScene" uid="uid://ccpgj8g85k252" path="res://Scenes/defense_button.tscn" id="3_bym3k"]
+[ext_resource type="Script" uid="uid://bxo6nv40jbiud" path="res://Scripts/movable_camera.gd" id="4_qg6o3"]
+[ext_resource type="Texture2D" uid="uid://cyl3dia3i2f37" path="res://Images/Dungeonplatform.png" id="5_gt1h2"]
+[ext_resource type="PackedScene" uid="uid://ght55irapkd2" path="res://Scenes/platform.tscn" id="7_bvmqx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bym3k"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4c7f6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[node name="Dungeon" type="Node2D" unique_id=1558878320]
+script = ExtResource("1_hcgkq")
+platform = ExtResource("7_bvmqx")
+defense_button = ExtResource("3_bym3k")
+dungeon_scene = "uid://bwxd4x6d6p78b"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1382122563]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1379332998]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MoneyLabel" type="Label" parent="CanvasLayer/Control" unique_id=553887285]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.116000004
+anchor_top = 0.97800004
+anchor_right = 0.116000004
+anchor_bottom = 0.97800004
+offset_left = -0.12000275
+offset_top = -15.040009
+offset_right = 46.879997
+offset_bottom = -0.040008545
+text = "123123"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control" unique_id=511915121]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.009000001
+anchor_top = 1.0170001
+anchor_right = 0.009000001
+anchor_bottom = 1.0170001
+offset_left = 0.119999886
+offset_top = -32.060013
+offset_right = 32.12
+offset_bottom = -0.060012817
+texture = ExtResource("1_83mrg")
+stretch_mode = 2
+
+[node name="Hotbar" type="NinePatchRect" parent="CanvasLayer/Control" unique_id=925813756]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -121.0
+offset_top = -32.0
+offset_right = -3.0
+offset_bottom = -1.9840088
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7a1ku")
+region_rect = Rect2(0, 0, 28, 30)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 4
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/Hotbar" unique_id=1330639697]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = -4.0
+offset_bottom = -4.015991
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Notif" type="Label" parent="CanvasLayer/Control" unique_id=440182195]
+visible = false
+custom_minimum_size = Vector2(210, 0)
+custom_maximum_size = Vector2(210, -1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.73300004
+anchor_right = 0.5
+anchor_bottom = 0.73300004
+offset_left = -97.0
+offset_top = 0.05999756
+offset_right = 97.0
+offset_bottom = 33.059998
+grow_horizontal = 2
+text = "The adventurer is back. prepare defenses."
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Notif" unique_id=95308896]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -3.8790002
+anchor_right = 0.5
+anchor_bottom = -3.8790002
+offset_left = -75.0
+offset_top = 0.007003784
+offset_right = 73.0
+offset_bottom = 15.007004
+theme_override_font_sizes/font_size = 8
+text = "( click and drag to move the camera )"
+
+[node name="Done" type="Button" parent="CanvasLayer/Control" unique_id=1522678478]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -36.0
+offset_top = 3.0
+offset_right = -7.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bym3k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4c7f6")
+text = "Done"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1446047055]
+script = ExtResource("4_qg6o3")
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D" unique_id=2071817368]
+z_index = -3
+offset_left = -208.0
+offset_top = -128.0
+offset_right = 224.0
+offset_bottom = 121.0
+mouse_filter = 2
+color = Color(0.124420725, 0.1479634, 0.22785804, 1)
+
+[node name="Path" type="Sprite2D" parent="." unique_id=1798481427]
+z_index = -2
+position = Vector2(95.5, 0)
+texture = ExtResource("2_qg6o3")
+
+[node name="Entrance" type="Sprite2D" parent="." unique_id=1092091023]
+position = Vector2(-133, 0)
+texture = ExtResource("5_gt1h2")
+
+[node name="GoldRoom" type="Sprite2D" parent="." unique_id=1453715978]
+position = Vector2(317, 0)
+texture = ExtResource("5_gt1h2")
+
+[connection signal="pressed" from="CanvasLayer/Control/Done" to="." method="_on_done_pressed"]

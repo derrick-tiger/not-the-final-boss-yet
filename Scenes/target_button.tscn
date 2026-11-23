@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ch2px0rfvx2s0"]
+
+[ext_resource type="Script" uid="uid://jbqqujstpi0i" path="res://Scripts/target_button.gd" id="1_h8b3c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aq0n2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d0u6y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yg6la"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[node name="Target" type="Button" unique_id=306964917]
+custom_minimum_size = Vector2(28, 32)
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxFlat_aq0n2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_d0u6y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yg6la")
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("1_h8b3c")
+
+[node name="Label" type="Label" parent="." unique_id=957792383]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -8.0
+offset_right = 27.0
+theme_override_font_sizes/font_size = 5
+text = "Target"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

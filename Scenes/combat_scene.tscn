@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bof7vsaujvk23"]
+
+[ext_resource type="Script" uid="uid://bnjw3liomotdo" path="res://Scripts/combat_scene.gd" id="1_kv618"]
+[ext_resource type="Script" uid="uid://c7jvy03nbmgva" path="res://Scripts/camera.gd" id="4_7uj85"]
+[ext_resource type="PackedScene" uid="uid://bonvvixjlhir3" path="res://Scenes/health_display.tscn" id="4_vtehv"]
+[ext_resource type="Texture2D" uid="uid://dtlywy344r227" path="res://Sprites/shadow.png" id="5_sv7pb"]
+[ext_resource type="PackedScene" uid="uid://2ck0mrbthr8v" path="res://Scenes/Combatant.tscn" id="6_cy4jt"]
+[ext_resource type="Texture2D" uid="uid://bn5hixfox1y0d" path="res://Images/background.png" id="6_loea4"]
+[ext_resource type="PackedScene" uid="uid://bxm20ysowx3fq" path="res://Scenes/interface.tscn" id="7_loea4"]
+
+[node name="CombatScene" type="Node2D" unique_id=651102564]
+script = ExtResource("1_kv618")
+health_display = ExtResource("4_vtehv")
+shadow_texture = ExtResource("5_sv7pb")
+combatant_scene = ExtResource("6_cy4jt")
+post_battle_scene = "uid://c3mgoudktpynm"
+
+[node name="PlayerPos" type="Marker2D" parent="." unique_id=64698728]
+position = Vector2(67, 25)
+
+[node name="EnemyPos" type="Marker2D" parent="." unique_id=741778171]
+position = Vector2(-75, -17)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=310168146]
+script = ExtResource("4_7uj85")
+min_x = -500.0
+max_x = 500.0
+min_y = -500.0
+max_y = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=728086998]
+z_index = -2
+position = Vector2(3, 1)
+texture = ExtResource("6_loea4")
+
+[node name="Interface" parent="." unique_id=776855193 instance=ExtResource("7_loea4")]
+visible = false

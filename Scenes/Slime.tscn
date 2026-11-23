@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bt3qq50ynxnfx"]
+
+[ext_resource type="Texture2D" uid="uid://cg8aqxaf6gv4l" path="res://Sprites/Slime-Sheet.png" id="1_rpqav"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyqiw"]
+atlas = ExtResource("1_rpqav")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gntrk"]
+atlas = ExtResource("1_rpqav")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rpqav"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyqiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gntrk")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[node name="Player" type="Node2D" unique_id=415433036]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1336834070]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_rpqav")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.5828431

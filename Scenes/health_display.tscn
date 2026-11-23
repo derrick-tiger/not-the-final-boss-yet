@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bonvvixjlhir3"]
+
+[ext_resource type="Script" uid="uid://buqelp7tc3i3h" path="res://Scripts/health_display.gd" id="1_na6m8"]
+[ext_resource type="Texture2D" uid="uid://666g7w8n7kfa" path="res://Images/panel.png" id="1_ys4b7"]
+[ext_resource type="Texture2D" uid="uid://dwj18dafblqr4" path="res://Images/health.png" id="2_y1t0r"]
+[ext_resource type="Texture2D" uid="uid://dq3t3brri15rm" path="res://Images/black.png" id="3_ngyog"]
+
+[node name="HealthDisplay" type="Control" unique_id=185293837]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_na6m8")
+
+[node name="Panel" type="NinePatchRect" parent="." unique_id=1037662898]
+texture_filter = 1
+layout_mode = 0
+offset_left = -36.0
+offset_top = -10.0
+offset_right = 36.0
+offset_bottom = 10.0
+texture = ExtResource("1_ys4b7")
+region_rect = Rect2(0, 0, 28, 30)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 4
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="HealthBar" type="TextureProgressBar" parent="Panel" unique_id=1006481025]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 9.0
+offset_right = 69.0
+offset_bottom = 15.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 2
+stretch_margin_right = 2
+stretch_margin_bottom = 2
+texture_under = ExtResource("3_ngyog")
+texture_progress = ExtResource("2_y1t0r")
+
+[node name="NameLabel" type="Label" parent="Panel" unique_id=2020047059]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.060000002
+anchor_right = 0.5
+anchor_bottom = 0.45000002
+offset_left = -0.040000916
+offset_top = 1.0
+offset_right = 3.2799988
+theme_override_font_sizes/font_size = 6
+text = "Lvl 1 slime"
+
+[node name="HealthLabel" type="Label" parent="Panel" unique_id=928734749]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -10.0
+offset_right = 27.0
+offset_bottom = -6.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 4
+text = "10/10"

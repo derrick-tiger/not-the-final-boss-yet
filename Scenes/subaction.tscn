@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dilm61pdfv6ph"]
+
+[ext_resource type="Script" uid="uid://b1fjlaf6301w6" path="res://Scripts/subaction.gd" id="1_lg1ge"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwsgx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d0u6y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yg6la"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[node name="Action" type="Button" unique_id=1739532410]
+custom_minimum_size = Vector2(50, 10)
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxFlat_uwsgx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_d0u6y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yg6la")
+text = "Return"
+script = ExtResource("1_lg1ge")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

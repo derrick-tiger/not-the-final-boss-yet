@@ -1,0 +1,258 @@
+[gd_scene format=3 uid="uid://bxm20ysowx3fq"]
+
+[ext_resource type="Script" uid="uid://c7q0ve33wbysc" path="res://Scripts/interface.gd" id="1_75fju"]
+[ext_resource type="Texture2D" uid="uid://666g7w8n7kfa" path="res://Images/panel.png" id="1_j00uw"]
+[ext_resource type="PackedScene" uid="uid://dilm61pdfv6ph" path="res://Scenes/subaction.tscn" id="2_uwsgx"]
+[ext_resource type="PackedScene" uid="uid://ch2px0rfvx2s0" path="res://Scenes/target_button.tscn" id="3_r04jc"]
+[ext_resource type="Texture2D" uid="uid://bfuo8svhg8gg4" path="res://Images/Action1.png" id="3_yg6la"]
+[ext_resource type="Texture2D" uid="uid://bw0cuicmuy8jv" path="res://Images/Action2.png" id="4_uwsgx"]
+[ext_resource type="Texture2D" uid="uid://dhkjdg5vx1cy5" path="res://Images/Action3.png" id="5_r04jc"]
+[ext_resource type="Texture2D" uid="uid://c3imp032svst5" path="res://Images/Action4.png" id="6_hbxki"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbxki"]
+bg_color = Color(0.7882353, 0.7882353, 0.7882353, 0)
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r04jc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwsgx"]
+bg_color = Color(0.7882353, 0.7882353, 0.7882353, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aq0n2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d0u6y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yg6la"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[node name="Interface" type="CanvasLayer" unique_id=776855193]
+script = ExtResource("1_75fju")
+subaction_button = ExtResource("2_uwsgx")
+target_button = ExtResource("3_r04jc")
+
+[node name="Panel" type="NinePatchRect" parent="." unique_id=682446803]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 1.0
+anchor_right = 0.8
+anchor_bottom = 1.0
+offset_top = -41.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_j00uw")
+region_rect = Rect2(0, 0, 28, 30)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 4
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Panel2" type="NinePatchRect" parent="Panel" unique_id=1977689449]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.11100001
+anchor_bottom = 0.11100001
+offset_top = -14.996002
+offset_right = 58.0
+offset_bottom = 0.0039978027
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_j00uw")
+region_rect = Rect2(0, 0, 28, 30)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 4
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Actions" type="HFlowContainer" parent="Panel" unique_id=1958788401]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = -4.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Attack" type="Button" parent="Panel/Actions" unique_id=1645224514]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbxki")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r04jc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uwsgx")
+icon = ExtResource("3_yg6la")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="Panel/Actions/Attack" unique_id=1460423542]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.83900005
+anchor_right = 0.5
+anchor_bottom = 0.83900005
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 5
+text = "Attack"
+horizontal_alignment = 1
+
+[node name="Item" type="Button" parent="Panel/Actions" unique_id=2107720310]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbxki")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r04jc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uwsgx")
+icon = ExtResource("4_uwsgx")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="Panel/Actions/Item" unique_id=895815834]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.83900005
+anchor_right = 0.5
+anchor_bottom = 0.83900005
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 5
+text = "Item"
+horizontal_alignment = 1
+
+[node name="Defend" type="Button" parent="Panel/Actions" unique_id=1419580779]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbxki")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r04jc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uwsgx")
+icon = ExtResource("5_r04jc")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="Panel/Actions/Defend" unique_id=1794080648]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.83900005
+anchor_right = 0.5
+anchor_bottom = 0.83900005
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 5
+text = "Defend"
+horizontal_alignment = 1
+
+[node name="Observe" type="Button" parent="Panel/Actions" unique_id=251282921]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbxki")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r04jc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uwsgx")
+icon = ExtResource("6_hbxki")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="Panel/Actions/Observe" unique_id=1765448783]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.83900005
+anchor_right = 0.5
+anchor_bottom = 0.83900005
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 5
+text = "Observe"
+horizontal_alignment = 1
+
+[node name="DisplayLabel" type="Label" parent="Panel" unique_id=622411667]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -7.0
+offset_right = 52.0
+theme_override_font_sizes/font_size = 6
+text = "Select action"
+
+[node name="Attacks" type="VFlowContainer" parent="Panel" unique_id=1539762348]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = -4.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 2
+
+[node name="Return" type="Button" parent="Panel/Attacks" unique_id=1739532410]
+custom_minimum_size = Vector2(50, 10)
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxFlat_aq0n2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_d0u6y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yg6la")
+text = "Return"
+
+[node name="Targets" type="HBoxContainer" parent="Panel" unique_id=863128249]
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 187.0
+offset_bottom = 31.0
+
+[node name="Cancel" type="Button" parent="Panel/Targets" unique_id=882036698]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxFlat_aq0n2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_d0u6y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yg6la")
+text = "Cancel"
+
+[node name="ResultLabel" type="Label" parent="Panel" unique_id=794285590]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 188.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 8
+
+[node name="ContinueLabel" type="Label" parent="Panel" unique_id=874876791]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.95800006
+anchor_right = 1.0
+anchor_bottom = 0.95800006
+offset_left = -73.0
+offset_top = -9.488003
+offset_right = -9.0
+offset_bottom = -2.4880028
+theme_override_font_sizes/font_size = 4
+text = "Click anywhere to continue"
+
+[connection signal="pressed" from="Panel/Actions/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="Panel/Attacks/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="Panel/Attacks/Return" to="Panel/Attacks/Return" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Targets/Cancel" to="." method="_on_cancel_pressed"]

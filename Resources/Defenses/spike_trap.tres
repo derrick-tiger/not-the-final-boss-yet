@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="DefenseData" format=3 uid="uid://dxfpbev33ahpw"]
+
+[ext_resource type="Texture2D" uid="uid://77re8fc3nxu0" path="res://Sprites/Spikes-Sheet.png" id="1_iiv1v"]
+[ext_resource type="Script" uid="uid://ck8gu3fbvnoq4" path="res://DefenseData.gd" id="1_l2nnv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x62hi"]
+atlas = ExtResource("1_iiv1v")
+region = Rect2(0, 0, 36, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqyoc"]
+atlas = ExtResource("1_iiv1v")
+region = Rect2(36, 0, 36, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x62hi")
+}],
+"loop": 1,
+"name": &"activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqyoc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_l2nnv")
+name = "Spikes"
+cost = 10
+p_damage = 2
+frames = SubResource("SpriteFrames_g4v7s")
+metadata/_custom_type_script = "uid://ck8gu3fbvnoq4"

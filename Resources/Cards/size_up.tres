@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://vfw4agbjr467"]
+
+[ext_resource type="Texture2D" uid="uid://bcqry1y57hsb4" path="res://Images/cardart/Sizeup.png" id="1_72hlm"]
+[ext_resource type="Script" uid="uid://bkxejnuqbv8vr" path="res://card_data.gd" id="2_ulp1p"]
+
+[resource]
+script = ExtResource("2_ulp1p")
+card_image = ExtResource("1_72hlm")
+card_name = "Size up"
+description = "Gain 2 DEF, Gain 1 ATK"
+def_bonus = 2
+atk_bonus = 1
+metadata/_custom_type_script = "uid://bkxejnuqbv8vr"

@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://bdoekuhrn07g0"]
+
+[ext_resource type="Script" uid="uid://d2ihiec0yh3nw" path="res://Scripts/introduction.gd" id="1_iqbxe"]
+[ext_resource type="Texture2D" uid="uid://c7y8ymfg3u1o1" path="res://Images/dungeonfloor.png" id="1_oavya"]
+[ext_resource type="Texture2D" uid="uid://bl7k3pi2q1fpu" path="res://Sprites/simplifiedknight-Sheet.png" id="2_dakn4"]
+[ext_resource type="Texture2D" uid="uid://cgpapss8m4xcg" path="res://Sprites/simplifiedslime-Sheet.png" id="2_lt7kh"]
+[ext_resource type="Texture2D" uid="uid://mab4lobwvkkf" path="res://Sprites/simpleshadow.png" id="3_lt7kh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt7kh"]
+atlas = ExtResource("2_dakn4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3tba"]
+atlas = ExtResource("2_dakn4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lt7kh")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lt7kh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3tba")
+}],
+"loop": 1,
+"name": &"move",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqbxe"]
+atlas = ExtResource("2_lt7kh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v1xs"]
+atlas = ExtResource("2_lt7kh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dcl0p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqbxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5v1xs")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[node name="Dungeon" type="Node2D" unique_id=1558878320]
+script = ExtResource("1_iqbxe")
+combat_scene = "uid://bof7vsaujvk23"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1382122563]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=376335818]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.73300004
+anchor_right = 0.5
+anchor_bottom = 0.73300004
+offset_left = -113.000015
+offset_top = 0.05999756
+offset_right = 112.999985
+offset_bottom = 23.059998
+grow_horizontal = 2
+horizontal_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1446047055]
+
+[node name="Path" type="Sprite2D" parent="Camera2D" unique_id=1798481427]
+z_index = -2
+scale = Vector2(11.6875, 1)
+texture = ExtResource("1_oavya")
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D" unique_id=210490479]
+z_index = -3
+offset_left = -208.0
+offset_top = -128.0
+offset_right = 224.0
+offset_bottom = 121.0
+color = Color(0.124420725, 0.1479634, 0.22785804, 1)
+
+[node name="Adventurer" type="AnimatedSprite2D" parent="." unique_id=1458408583]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+animation = &"move"
+autoplay = "move"
+
+[node name="Shadow" type="Sprite2D" parent="Adventurer" unique_id=277059398]
+z_index = -1
+position = Vector2(0, 16)
+texture = ExtResource("3_lt7kh")
+
+[node name="Slime" type="AnimatedSprite2D" parent="." unique_id=1374326070]
+position = Vector2(194, -16)
+sprite_frames = SubResource("SpriteFrames_dcl0p")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.79144883
+
+[node name="Shadow" type="Sprite2D" parent="Slime" unique_id=1426651551]
+z_index = -1
+position = Vector2(0, 16)
+texture = ExtResource("3_lt7kh")
