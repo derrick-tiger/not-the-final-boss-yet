@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dpqxybekajgpi"]
+
+[ext_resource type="Script" uid="uid://demtvqiorm6j2" path="res://Scripts/damage_popup.gd" id="1_bv3wo"]
+
+[node name="DamagePopup" type="Node2D" unique_id=2146624110]
+script = ExtResource("1_bv3wo")
+
+[node name="Label" type="Label" parent="." unique_id=1734649538]
+offset_left = -40.0
+offset_top = -8.0
+offset_right = 40.0
+offset_bottom = 7.0
+horizontal_alignment = 1

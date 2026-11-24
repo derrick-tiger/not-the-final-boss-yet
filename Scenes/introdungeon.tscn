@@ -2,39 +2,9 @@
 
 [ext_resource type="Script" uid="uid://d2ihiec0yh3nw" path="res://Scripts/introduction.gd" id="1_iqbxe"]
 [ext_resource type="Texture2D" uid="uid://c7y8ymfg3u1o1" path="res://Images/dungeonfloor.png" id="1_oavya"]
-[ext_resource type="Texture2D" uid="uid://bl7k3pi2q1fpu" path="res://Sprites/simplifiedknight-Sheet.png" id="2_dakn4"]
 [ext_resource type="Texture2D" uid="uid://cgpapss8m4xcg" path="res://Sprites/simplifiedslime-Sheet.png" id="2_lt7kh"]
 [ext_resource type="Texture2D" uid="uid://mab4lobwvkkf" path="res://Sprites/simpleshadow.png" id="3_lt7kh"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lt7kh"]
-atlas = ExtResource("2_dakn4")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l3tba"]
-atlas = ExtResource("2_dakn4")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lt7kh")
-}],
-"loop": 1,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lt7kh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l3tba")
-}],
-"loop": 1,
-"name": &"move",
-"speed": 3.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://bt5t3p55b7pu4" path="res://Resources/Frames/knight_simple.tres" id="3_s7bun"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iqbxe"]
 atlas = ExtResource("2_lt7kh")
@@ -94,7 +64,7 @@ color = Color(0.124420725, 0.1479634, 0.22785804, 1)
 
 [node name="Adventurer" type="AnimatedSprite2D" parent="." unique_id=1458408583]
 position = Vector2(0, -16)
-sprite_frames = SubResource("SpriteFrames_yf5fn")
+sprite_frames = ExtResource("3_s7bun")
 animation = &"move"
 autoplay = "move"
 

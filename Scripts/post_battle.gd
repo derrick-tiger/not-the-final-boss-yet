@@ -10,6 +10,7 @@ extends CanvasLayer
 
 @onready var big_label : = $BigLabel
 @onready var confirm_button : = $Confirm
+@onready var retry_button : = $Retry
 
 @export var card_scene : PackedScene
 
@@ -43,14 +44,28 @@ func tween_character():
 	newtween.tween_property(character_holder,"position",original_pos,1.5)
 
 func _ready() -> void:
-	play_defeat_sequence()
+	if PlayerData.outcome_victory:
+		queue.append("You won this time.")
+		queue.append("Keep adapting.")
+		queue.append("You won't be the only one getting stronger.")
+		play_sequence()
+	else:
+		if PlayerData.encounter_ind == 0:
+			queue.append("You lost the battle . . .")
+			queue.append("But somehow you returned.")
+			queue.append("This time you will come prepared . . .")
+			play_sequence()
+		else:
+			queue.append("Retry?")
+			next()
+			await cont
+			retry_button.visible = true
+			
+	PlayerData.encounter_ind += 1
 
 var queue : Array[String]
-
-func play_defeat_sequence():
-	queue.append("You lost the battle . . .")
-	queue.append("But somehow you returned.")
-	queue.append("This time you will come prepared . . .")
+	
+func play_sequence():
 	next()
 	await cont
 	var new_player_scene = load(PlayerData.current_slime.scene).instantiate()
@@ -67,9 +82,10 @@ func play_defeat_sequence():
 	label.visible = false
 	card_hbox.visible = true
 	for i in PlayerData.next_evolution:
+		var card = load(i)
 		var new_card = card_scene.instantiate()
 		card_hbox.add_child(new_card)
-		new_card.setup_card(i)
+		new_card.setup_card(card)
 		new_card.selected.connect(confirm_select)
 	big_label.visible = true
 	type_text(big_label,"Pick one")
@@ -78,8 +94,12 @@ func confirm_select(card:CardData):
 	big_label.visible = false
 	if card.slime != null:
 		PlayerData.current_slime = card.slime
+	if !card.moves.is_empty():
+		for i in card.moves:
+			PlayerData.equipped_attacks.append(i)
 	PlayerData.atk_bonus += card.atk_bonus
 	PlayerData.def_bonus += card.def_bonus
+	PlayerData.next_evolution = card.evolutions
 	confirm_button.visible = true
 
 func next():
@@ -102,4 +122,7 @@ func _input(event: InputEvent) -> void:
 			cont.emit()
 
 func _on_confirm_pressed() -> void:
+	SceneLoader.load_scene(prep_scene)
+
+func _on_retry_pressed() -> void:
 	SceneLoader.load_scene(prep_scene)

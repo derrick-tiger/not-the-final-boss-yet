@@ -3,11 +3,15 @@
 [ext_resource type="Script" uid="uid://dyt1kgceyr3yh" path="res://Scripts/dungeon.gd" id="1_iqbxe"]
 [ext_resource type="Texture2D" uid="uid://c7y8ymfg3u1o1" path="res://Images/dungeonfloor.png" id="1_oavya"]
 [ext_resource type="PackedScene" uid="uid://ght55irapkd2" path="res://Scenes/platform.tscn" id="2_t83ds"]
+[ext_resource type="Texture2D" uid="uid://mab4lobwvkkf" path="res://Sprites/simpleshadow.png" id="3_lt7kh"]
+[ext_resource type="Texture2D" uid="uid://666g7w8n7kfa" path="res://Images/panel.png" id="4_5v1xs"]
 [ext_resource type="Texture2D" uid="uid://cyl3dia3i2f37" path="res://Images/Dungeonplatform.png" id="6_5v1xs"]
 
 [node name="Dungeon" type="Node2D" unique_id=1558878320]
 script = ExtResource("1_iqbxe")
 platform = ExtResource("2_t83ds")
+shadow = ExtResource("3_lt7kh")
+combat_scene = "uid://bof7vsaujvk23"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1382122563]
 
@@ -19,6 +23,51 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Panel" type="NinePatchRect" parent="CanvasLayer/Control" unique_id=2123656084]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 1.0
+anchor_right = 0.8
+anchor_bottom = 1.0
+offset_top = -41.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_5v1xs")
+region_rect = Rect2(0, 0, 28, 30)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 4
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="ResultLabel" type="Label" parent="CanvasLayer/Control/Panel" unique_id=1210974195]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 188.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 8
+
+[node name="ContinueLabel" type="Label" parent="CanvasLayer/Control/Panel" unique_id=452631645]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.95800006
+anchor_right = 1.0
+anchor_bottom = 0.95800006
+offset_left = -73.0
+offset_top = -9.488003
+offset_right = -9.0
+offset_bottom = -2.4880028
+theme_override_font_sizes/font_size = 4
+text = "Click anywhere to continue"
 
 [node name="Notif" type="Label" parent="CanvasLayer/Control" unique_id=440182195]
 visible = false
@@ -40,6 +89,7 @@ horizontal_alignment = 1
 autowrap_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1446047055]
+position = Vector2(-30, 0)
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D" unique_id=2071817368]
 z_index = -3

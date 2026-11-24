@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CombatantResource" format=3 uid="uid://bpm75s5kf87pl"]
+
+[ext_resource type="Script" uid="uid://cc7krldh2c0lj" path="res://Scripts/Attack.gd" id="1_5ln43"]
+[ext_resource type="Script" uid="uid://cy8njhqg7lucs" path="res://ItemData.gd" id="2_tty2j"]
+[ext_resource type="Script" uid="uid://dnh8cbo0d0ywu" path="res://Scripts/combatantresource.gd" id="3_5vtjd"]
+
+[resource]
+script = ExtResource("3_5vtjd")
+max_health = 10
+level = 3
+combatant_name = "Fire slime"
+scene = "uid://cr4thr3ld07ru"
+atk = 4
+def = 1
+metadata/_custom_type_script = "uid://dnh8cbo0d0ywu"

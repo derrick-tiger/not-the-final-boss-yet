@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CombatantResource" format=3 uid="uid://fkwh4jjgc4cg"]
+
+[ext_resource type="Script" uid="uid://cc7krldh2c0lj" path="res://Scripts/Attack.gd" id="1_prwbu"]
+[ext_resource type="Script" uid="uid://dnh8cbo0d0ywu" path="res://Scripts/combatantresource.gd" id="2_6xic6"]
+
+[resource]
+script = ExtResource("2_6xic6")
+max_health = 10
+level = 2
+combatant_name = "Large slime"
+scene = "uid://dx22uevtiogyn"
+atk = 1
+def = 2
+metadata/_custom_type_script = "uid://dnh8cbo0d0ywu"

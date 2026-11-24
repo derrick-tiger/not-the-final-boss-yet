@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CombatantResource" format=3 uid="uid://b87la54n57w7l"]
+
+[ext_resource type="Script" uid="uid://cc7krldh2c0lj" path="res://Scripts/Attack.gd" id="1_vl5d4"]
+[ext_resource type="Script" uid="uid://dnh8cbo0d0ywu" path="res://Scripts/combatantresource.gd" id="2_7h406"]
+
+[resource]
+script = ExtResource("2_7h406")
+max_health = 7
+level = 2
+combatant_name = "Magic slime"
+scene = "uid://c1n5ek3a6x5oj"
+atk = 1
+metadata/_custom_type_script = "uid://dnh8cbo0d0ywu"

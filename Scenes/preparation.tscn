@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://bxo6nv40jbiud" path="res://Scripts/movable_camera.gd" id="4_qg6o3"]
 [ext_resource type="Texture2D" uid="uid://cyl3dia3i2f37" path="res://Images/Dungeonplatform.png" id="5_gt1h2"]
 [ext_resource type="PackedScene" uid="uid://ght55irapkd2" path="res://Scenes/platform.tscn" id="7_bvmqx"]
+[ext_resource type="Texture2D" uid="uid://42kg8gvud2wa" path="res://Sprites/marker-Sheet.png" id="9_4c7f6"]
+[ext_resource type="Texture2D" uid="uid://di2qktnvnsw6f" path="res://Sprites/Marker2-Sheet-export.png" id="10_5lb65"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -22,6 +24,50 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lb65"]
+atlas = ExtResource("9_4c7f6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h604l"]
+atlas = ExtResource("9_4c7f6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lb65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h604l")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyerh"]
+atlas = ExtResource("10_5lb65")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_404qj"]
+atlas = ExtResource("10_5lb65")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xbbjb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyerh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_404qj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="Dungeon" type="Node2D" unique_id=1558878320]
 script = ExtResource("1_hcgkq")
@@ -171,8 +217,51 @@ texture = ExtResource("2_qg6o3")
 position = Vector2(-133, 0)
 texture = ExtResource("5_gt1h2")
 
+[node name="IncursionPoint" type="AnimatedSprite2D" parent="Entrance" unique_id=284466685]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.0077578626
+
+[node name="Label" type="Label" parent="Entrance/IncursionPoint" unique_id=626717233]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -7.0
+offset_right = 2.0
+offset_bottom = 5.0
+theme_override_colors/font_color = Color(0.9843137, 0.3019608, 0.3019608, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 6
+text = "Incursion
+point"
+horizontal_alignment = 1
+
 [node name="GoldRoom" type="Sprite2D" parent="." unique_id=1453715978]
 position = Vector2(317, 0)
 texture = ExtResource("5_gt1h2")
+
+[node name="StandoffPoint" type="AnimatedSprite2D" parent="GoldRoom" unique_id=328890865]
+sprite_frames = SubResource("SpriteFrames_xbbjb")
+autoplay = "default"
+
+[node name="Label" type="Label" parent="GoldRoom/StandoffPoint" unique_id=969806576]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -7.0
+offset_right = 2.0
+offset_bottom = 5.0
+theme_override_colors/font_color = Color(0.20392157, 0.8627451, 1, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 6
+text = "Stand off
+point"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="CanvasLayer/Control/Done" to="." method="_on_done_pressed"]

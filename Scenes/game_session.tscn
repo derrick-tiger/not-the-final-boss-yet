@@ -4,19 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://2sbmn33s6y32" path="res://Scenes/main_menu.tscn" id="2_menu"]
 [ext_resource type="Script" uid="uid://cc7krldh2c0lj" path="res://Scripts/Attack.gd" id="3_pbfqv"]
 [ext_resource type="Script" uid="uid://dnh8cbo0d0ywu" path="res://Scripts/combatantresource.gd" id="4_krw16"]
+[ext_resource type="Resource" uid="uid://ckvfv7sbaednu" path="res://Resources/Attacks/lunge.tres" id="4_lhlgy"]
+[ext_resource type="Script" uid="uid://cy8njhqg7lucs" path="res://ItemData.gd" id="4_mabpb"]
 [ext_resource type="Script" uid="uid://ck8gu3fbvnoq4" path="res://DefenseData.gd" id="5_lqndd"]
-[ext_resource type="Script" uid="uid://bkxejnuqbv8vr" path="res://card_data.gd" id="5_q4g1x"]
 [ext_resource type="Resource" uid="uid://dxfpbev33ahpw" path="res://Resources/Defenses/spike_trap.tres" id="6_lhlgy"]
-[ext_resource type="Resource" uid="uid://cv5swgvd24b7a" path="res://Resources/Cards/imbuement.tres" id="6_mabpb"]
-[ext_resource type="Resource" uid="uid://vfw4agbjr467" path="res://Resources/Cards/size_up.tres" id="7_0gxyp"]
-
-[sub_resource type="Resource" id="Resource_8i3su"]
-script = ExtResource("3_pbfqv")
-name = "Lunge"
-damage = 1
-crit_bonus = 1
-mana_cost = 1
-metadata/_custom_type_script = "uid://cc7krldh2c0lj"
+[ext_resource type="Resource" uid="uid://dgfjay7tq42fq" path="res://Resources/Combatants/knight.tres" id="7_lhlgy"]
+[ext_resource type="Resource" uid="uid://cy5assipj8if6" path="res://Resources/Items/small_vial.tres" id="10_lhlgy"]
 
 [sub_resource type="Resource" id="Resource_4oswx"]
 script = ExtResource("4_krw16")
@@ -26,30 +19,14 @@ scene = "uid://bt3qq50ynxnfx"
 atk = 1
 metadata/_custom_type_script = "uid://dnh8cbo0d0ywu"
 
-[sub_resource type="Resource" id="Resource_cy4jt"]
-script = ExtResource("3_pbfqv")
-name = "Hero cut"
-damage = 2
-crit_bonus = 2
-mana_cost = 1
-metadata/_custom_type_script = "uid://cc7krldh2c0lj"
-
-[sub_resource type="Resource" id="Resource_h6utr"]
-script = ExtResource("4_krw16")
-max_health = 10
-combatant_name = "Knight"
-is_enemy = true
-attacks = Array[ExtResource("3_pbfqv")]([SubResource("Resource_cy4jt")])
-scene = "uid://bbm1rlxbm6dac"
-atk = 1
-def = 1
-metadata/_custom_type_script = "uid://dnh8cbo0d0ywu"
-
 [node name="GameSession" type="Node" unique_id=1904851458]
 script = ExtResource("1_script")
 main_menu_scene = ExtResource("2_menu")
-starting_moves = Array[ExtResource("3_pbfqv")]([SubResource("Resource_8i3su")])
+starting_moves = Array[ExtResource("3_pbfqv")]([ExtResource("4_lhlgy")])
 starting_slime = SubResource("Resource_4oswx")
-starting_enemy = SubResource("Resource_h6utr")
+starting_enemies = Array[ExtResource("4_krw16")]([ExtResource("7_lhlgy")])
 starting_defenses = Array[ExtResource("5_lqndd")]([ExtResource("6_lhlgy")])
-starting_evolutions = Array[ExtResource("5_q4g1x")]([ExtResource("6_mabpb"), ExtResource("7_0gxyp")])
+starting_evolutions = Array[String](["uid://cv5swgvd24b7a", "uid://vfw4agbjr467"])
+starting_inventory = Dictionary[ExtResource("4_mabpb"), int]({
+ExtResource("10_lhlgy"): 1
+})

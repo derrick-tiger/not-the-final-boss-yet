@@ -19,7 +19,8 @@ func setup(set_to :DefenseData,mode:bool,rt,identification):
 	if set_to != null:
 		animated.sprite_frames = set_to.frames
 		if mode == true:
-			animated.play("activated")
+			if animated.sprite_frames.has_animation("activated"):
+				animated.play("activated")
 		else:
 			preview.visible = false
 	root = rt
@@ -35,6 +36,24 @@ func _on_click_box_input_event(viewport: Node, event: InputEvent, shape_idx: int
 		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		clicked.emit(self,id)
+
+func activate_trap(victim:CombatantResource):
+	var before : int = victim.pretaken_damage
+	var p_damage = defense.p_damage
+	p_damage -= victim.def
+	if p_damage < 0:
+		p_damage = 0
+	victim.pretaken_damage += p_damage
+	if victim.pretaken_damage > victim.max_health - 1:
+		victim.pretaken_damage = victim.max_health - 1
+	var final = victim.pretaken_damage - before
+	if animated.sprite_frames.has_animation("activated"):
+		animated.play("activated")
+	root.display_damage(victim.combatant_name,final,defense.name)
+
+func deactivate():
+	if animated.sprite_frames.has_animation("default"):
+		animated.play("default")
 
 func _on_click_box_mouse_entered() -> void:
 	if build_mode:

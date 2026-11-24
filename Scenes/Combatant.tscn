@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://2ck0mrbthr8v"]
 
 [ext_resource type="Script" uid="uid://b01ls47pvkltc" path="res://Scripts/combatant.gd" id="1_amgnx"]
+[ext_resource type="PackedScene" uid="uid://dpqxybekajgpi" path="res://Scenes/damage_popup.tscn" id="2_k73k6"]
 
 [node name="Combatant" type="Node2D" unique_id=1693072801]
 script = ExtResource("1_amgnx")
+damage_popup = ExtResource("2_k73k6")

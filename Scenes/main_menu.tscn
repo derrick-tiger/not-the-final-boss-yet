@@ -4,7 +4,7 @@
 
 [node name="MainMenu" type="CanvasLayer" unique_id=993491615]
 script = ExtResource("1_script")
-initial_scene = "uid://cn5m18sfm47rj"
+initial_scene = "uid://bof7vsaujvk23"
 
 [node name="Screen" type="Control" parent="." unique_id=4201866]
 layout_mode = 3
@@ -39,7 +39,7 @@ theme_override_constants/separation = 16
 [node name="Title" type="Label" parent="Screen/CenterContainer/Menu" unique_id=113877250]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Not the Final Boss Yet"
+text = "Not the Final Boss... Yet"
 horizontal_alignment = 1
 
 [node name="PlayButton" type="Button" parent="Screen/CenterContainer/Menu" unique_id=80549297]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cy5assipj8if6"]
+
+[ext_resource type="Script" uid="uid://cy8njhqg7lucs" path="res://ItemData.gd" id="1_m2wkn"]
+[ext_resource type="Texture2D" uid="uid://xpfxmy5ltnrg" path="res://Sprites/smallvial.png" id="1_uvjub"]
+
+[resource]
+script = ExtResource("1_m2wkn")
+name = "Heal vial"
+health_gain = 5
+image = ExtResource("1_uvjub")
+metadata/_custom_type_script = "uid://cy8njhqg7lucs"

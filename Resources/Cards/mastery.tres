@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c7uja870se5bh"]
+
+[ext_resource type="Texture2D" uid="uid://dfvs3lnne7ert" path="res://Images/Mastery.png" id="1_yha4y"]
+[ext_resource type="Script" uid="uid://cc7krldh2c0lj" path="res://Scripts/Attack.gd" id="2_g4d5w"]
+[ext_resource type="Script" uid="uid://bkxejnuqbv8vr" path="res://card_data.gd" id="3_hrtoa"]
+[ext_resource type="Resource" uid="uid://bxb787r7k770u" path="res://Resources/Combatants/arcane_slime.tres" id="4_yha4y"]
+
+[resource]
+script = ExtResource("3_hrtoa")
+card_image = ExtResource("1_yha4y")
+card_name = "Mastery"
+slime = ExtResource("4_yha4y")
+description = "Evolve into Arcane slime, learn \"arcane blast\""
+atk_bonus = 1
+metadata/_custom_type_script = "uid://bkxejnuqbv8vr"

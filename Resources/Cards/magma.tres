@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c1m1fv3h0ta3x"]
+
+[ext_resource type="Texture2D" uid="uid://ccud0lmwrqovb" path="res://Images/Magma.png" id="1_pkntw"]
+[ext_resource type="Script" uid="uid://cc7krldh2c0lj" path="res://Scripts/Attack.gd" id="2_kuam7"]
+[ext_resource type="Script" uid="uid://bkxejnuqbv8vr" path="res://card_data.gd" id="3_rt3e5"]
+[ext_resource type="Resource" uid="uid://bpm75s5kf87pl" path="res://Resources/Combatants/fire_slime.tres" id="4_pkntw"]
+
+[resource]
+script = ExtResource("3_rt3e5")
+card_image = ExtResource("1_pkntw")
+card_name = "Magma"
+slime = ExtResource("4_pkntw")
+description = "Evolve into Fire slime, learn \"singe\", gain 1 ATK"
+atk_bonus = 1
+metadata/_custom_type_script = "uid://bkxejnuqbv8vr"

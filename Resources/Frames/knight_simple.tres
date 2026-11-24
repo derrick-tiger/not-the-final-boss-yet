@@ -1,0 +1,33 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bt5t3p55b7pu4"]
+
+[ext_resource type="Texture2D" uid="uid://bl7k3pi2q1fpu" path="res://Sprites/simplifiedknight-Sheet.png" id="1_edlv0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt7kh"]
+atlas = ExtResource("1_edlv0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3tba"]
+atlas = ExtResource("1_edlv0")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lt7kh")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lt7kh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3tba")
+}],
+"loop": 1,
+"name": &"move",
+"speed": 3.0
+}]

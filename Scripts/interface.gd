@@ -9,9 +9,13 @@ extends CanvasLayer
 @onready var CancelButton : = $Panel/Targets/Cancel
 @onready var ResultLabel : = $Panel/ResultLabel
 @onready var ContinueLabel : = $Panel/ContinueLabel
+@onready var InventoryPanel : = $InventoryPanel
+@onready var InventoryGrid : = $InventoryPanel/GridContainer
+@onready var MainPanel : = $Panel
 
 @export var subaction_button : PackedScene
 @export var target_button : PackedScene
+@export var inventory_button : PackedScene
 
 var root : Node2D
 
@@ -48,7 +52,7 @@ func display_targets():
 	Targets.move_child(CancelButton,-1)
 
 func confirm_target(target):
-	root.process_attack(selected_attack,target)
+	root.process_attack(selected_attack,target,root.all_combatants[root.turn_index])
 	clean_targets()
 	Targets.visible = false
 
@@ -101,6 +105,28 @@ func _on_return_pressed() -> void:
 	AttacksFlow.visible = false
 	display_actions()
 
+func display_inventory():
+	InventoryPanel.visible = true
+	MainPanel.visible = false
+	for i in PlayerData.inventory:
+		var new_button = inventory_button.instantiate()
+		new_button.setup(i,PlayerData.inventory[i],self)
+		InventoryGrid.add_child(new_button)
+
+func clean_inventory():
+	for i in InventoryGrid.get_children():
+		i.queue_free()
+	InventoryPanel.visible = false
+	MainPanel.visible = true
+
+func confirm_item_use(data : ItemData):
+	PlayerData.inventory[data] -= 1
+	if PlayerData.inventory[data] <= 0:
+		PlayerData.inventory.erase(data)
+	root.process_item_use(data)
+	Actions.visible = false
+	clean_inventory()
+
 func _unhandled_input(event: InputEvent) -> void:
 	if awaiting_continue == false : return
 	if event is InputEventMouseButton:
@@ -114,3 +140,12 @@ func _on_cancel_pressed() -> void:
 	clean_targets()
 	Targets.visible = false
 	display_attacks()
+
+func _on_item_pressed() -> void:
+	display_inventory()
+
+func _on_inventory_close_pressed() -> void:
+	clean_inventory()
+
+func _on_defend_pressed() -> void:
+	root.request_shield()

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dg1op4cjf3dmt"]
+
+[ext_resource type="Texture2D" uid="uid://ddlnim34ocmkw" path="res://Sprites/ArcaneSlime-Sheet.png" id="1_0v7sy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tr3nv"]
+atlas = ExtResource("1_0v7sy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmhbk"]
+atlas = ExtResource("1_0v7sy")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rpqav"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tr3nv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmhbk")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[node name="Player" type="Node2D" unique_id=415433036]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1336834070]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_rpqav")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.5828431

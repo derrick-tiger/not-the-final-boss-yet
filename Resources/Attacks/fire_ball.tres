@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_enutv")
 name = "Fireball"
-damage = 4
+damage = 3
 crit_bonus = 2
 mana_cost = 2
+attack_type = 1
 metadata/_custom_type_script = "uid://cc7krldh2c0lj"
