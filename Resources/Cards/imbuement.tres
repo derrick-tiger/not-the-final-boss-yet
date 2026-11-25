@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cv5swgvd24b7a"]
 
+[ext_resource type="Script" uid="uid://dnh8cbo0d0ywu" path="res://Scripts/combatantresource.gd" id="1_3usnk"]
 [ext_resource type="Texture2D" uid="uid://j40yusdbrxxi" path="res://Images/cardart/imbuement.png" id="1_apf8r"]
 [ext_resource type="Resource" uid="uid://bp3tnu2pqw5b3" path="res://Resources/Attacks/fire_ball.tres" id="1_h6vhf"]
 [ext_resource type="Script" uid="uid://bkxejnuqbv8vr" path="res://card_data.gd" id="1_opm0u"]
@@ -13,5 +14,5 @@ card_name = "Imbuement"
 slime = ExtResource("5_c0o7l")
 description = "Evolve into magic slime, Learn \"Fireball\""
 moves = Array[ExtResource("2_83lvg")]([ExtResource("1_h6vhf")])
-evolutions = Array[String]([""])
+evolutions = Array[String](["uid://c1m1fv3h0ta3x", "uid://c7uja870se5bh"])
 metadata/_custom_type_script = "uid://bkxejnuqbv8vr"

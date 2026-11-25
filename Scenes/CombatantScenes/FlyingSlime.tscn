@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://f2j4coefy5a4"]
+
+[ext_resource type="Texture2D" uid="uid://l0y7det7ut34" path="res://Sprites/FlyingSlime-Sheet.png" id="1_aca64"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joffj"]
+atlas = ExtResource("1_aca64")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qn2m"]
+atlas = ExtResource("1_aca64")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t87s2"]
+atlas = ExtResource("1_aca64")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rpqav"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joffj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qn2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t87s2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qn2m")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[node name="Player" type="Node2D" unique_id=415433036]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1336834070]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_rpqav")
+animation = &"idle"
+autoplay = "idle"

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://c7323ddg5fvjw"]
+
+[ext_resource type="Texture2D" uid="uid://c0o4106n2uxyk" path="res://Sprites/VolcanoSlime-Sheet.png" id="1_sj175"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j10o1"]
+atlas = ExtResource("1_sj175")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0ych"]
+atlas = ExtResource("1_sj175")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hpvt"]
+atlas = ExtResource("1_sj175")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_du04b"]
+atlas = ExtResource("1_sj175")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rpqav"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j10o1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0ych")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hpvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_du04b")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[node name="Player" type="Node2D" unique_id=415433036]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1336834070]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_rpqav")
+animation = &"idle"
+autoplay = "idle"
+frame = 3
+frame_progress = 0.93685144

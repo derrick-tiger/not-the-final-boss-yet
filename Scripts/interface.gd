@@ -12,6 +12,7 @@ extends CanvasLayer
 @onready var InventoryPanel : = $InventoryPanel
 @onready var InventoryGrid : = $InventoryPanel/GridContainer
 @onready var MainPanel : = $Panel
+@onready var mana_label : Label = $Panel/ManaLabel
 
 @export var subaction_button : PackedScene
 @export var target_button : PackedScene
@@ -24,7 +25,11 @@ var selected_attack : AttackResource
 var awaiting_continue : bool
 var selected_ally : Node2D
 
+func update_mana():
+	mana_label.text = "mana : " + str(root.all_combatants[root.turn_index].mana) + "/5"
+
 func display_actions():
+	update_mana()
 	Actions.visible = true
 	DisplayLabel.text = "Select action"
 
@@ -42,14 +47,28 @@ func display_attacks():
 		AttacksFlow.add_child(new_button)
 	AttacksFlow.move_child(ReturnButton,-1)
 
-func display_targets():
+func display_targets(mode:bool):
 	DisplayLabel.text = "Choose target"
 	Targets.visible = true
 	for i in root.enemies:
 		var new_targetbutton = target_button.instantiate()
-		new_targetbutton.setup_target(i, self)
 		Targets.add_child(new_targetbutton)
+		new_targetbutton.setup_target(i, self, mode)
 	Targets.move_child(CancelButton,-1)
+
+func confirm_observation(target):
+	clean_targets()
+	ResultLabel.text = ""
+	var resource : CombatantResource = target.resource
+	var text =  resource.combatant_name + ", Lvl" + str(resource.level) + "; atk: " + str(resource.atk)
+	text += ", def: " + str(resource.def)
+	Targets.visible = false
+	ResultLabel.visible = true
+	var tween = type_text(ResultLabel,text)
+	await tween.finished
+	ContinueLabel.visible = true
+	awaiting_continue = true
+	ready_continue = false
 
 func confirm_target(target):
 	root.process_attack(selected_attack,target,root.all_combatants[root.turn_index])
@@ -57,10 +76,16 @@ func confirm_target(target):
 	Targets.visible = false
 
 func receive_attack(attack : AttackResource):
+	var combatant = root.all_combatants[root.turn_index]
+	var mana = combatant.mana
+	if mana > attack.mana_cost:
+		combatant.mana -= attack.mana_cost
+	else:
+		return
 	selected_attack = attack
 	clean_attacks()
 	AttacksFlow.visible = false
-	display_targets()
+	display_targets(true)
 
 func clean_attacks():
 	for i in AttacksFlow.get_children():
@@ -68,6 +93,7 @@ func clean_attacks():
 			i.queue_free()
 
 func clean_targets():
+	update_mana()
 	for i in Targets.get_children():
 		if i.name != "Cancel":
 			i.queue_free()
@@ -127,13 +153,19 @@ func confirm_item_use(data : ItemData):
 	Actions.visible = false
 	clean_inventory()
 
+var ready_continue : bool = true
+
 func _unhandled_input(event: InputEvent) -> void:
 	if awaiting_continue == false : return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			ResultLabel.visible = false
 			ContinueLabel.visible = false
-			root.cont()
+			if ready_continue:
+				root.cont()
+			else:
+				ready_continue = true
+				display_actions()
 			awaiting_continue = false
 
 func _on_cancel_pressed() -> void:
@@ -149,3 +181,8 @@ func _on_inventory_close_pressed() -> void:
 
 func _on_defend_pressed() -> void:
 	root.request_shield()
+
+func _on_observe_pressed() -> void:
+	Actions.visible = false
+	display_targets(false)
+	

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dhdkvfuhea146"]
+
+[ext_resource type="Script" uid="uid://dnh8cbo0d0ywu" path="res://Scripts/combatantresource.gd" id="1_m4vh2"]
+[ext_resource type="Script" uid="uid://cc7krldh2c0lj" path="res://Scripts/Attack.gd" id="2_m4vh2"]
+[ext_resource type="Texture2D" uid="uid://bo4bsq12nyeml" path="res://Images/Ironskin.png" id="2_omex6"]
+[ext_resource type="Script" uid="uid://bkxejnuqbv8vr" path="res://card_data.gd" id="3_omex6"]
+[ext_resource type="Resource" uid="uid://fkwh4jjgc4cg" path="res://Resources/Combatants/large_slime.tres" id="4_64x13"]
+
+[resource]
+script = ExtResource("3_omex6")
+card_image = ExtResource("2_omex6")
+card_name = "Iron skin"
+slime = ExtResource("4_64x13")
+description = "Evolve into Iron slime, gain 2 Def"
+moves = Array[ExtResource("2_m4vh2")]([null])
+def_bonus = 2
+metadata/_custom_type_script = "uid://bkxejnuqbv8vr"

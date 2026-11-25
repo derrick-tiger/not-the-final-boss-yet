@@ -3,10 +3,16 @@ extends Button
 var target : Node2D
 var root : Node
 
-func setup_target(targ : Node2D, rt : Node) -> void:
+@onready var label = $NameLabel
+
+var mode : bool = false
+
+func setup_target(targ : Node2D, rt : Node, md:bool) -> void:
 	target = targ
 	root = rt
 	icon = null
+	mode = md
+	label.text = target.resource.combatant_name
 	if not is_instance_valid(target):
 		return
 	var container : = target.get_child(0)
@@ -19,4 +25,7 @@ func setup_target(targ : Node2D, rt : Node) -> void:
 		icon = frames.get_frame_texture(&"idle", 0)
 	
 func _on_pressed() -> void:
-	root.confirm_target(target)
+	if mode == true:
+		root.confirm_target(target)
+	elif mode == false:
+		root.confirm_observation(target)

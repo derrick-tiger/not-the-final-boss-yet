@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CombatantResource" format=3 uid="uid://bj24kkpnwkxd7"]
+
+[ext_resource type="Script" uid="uid://cc7krldh2c0lj" path="res://Scripts/Attack.gd" id="1_iyrut"]
+[ext_resource type="Resource" uid="uid://ckvfv7sbaednu" path="res://Resources/Attacks/lunge.tres" id="2_5hup6"]
+[ext_resource type="Script" uid="uid://cy8njhqg7lucs" path="res://ItemData.gd" id="2_j2edl"]
+[ext_resource type="Script" uid="uid://dnh8cbo0d0ywu" path="res://Scripts/combatantresource.gd" id="3_5hup6"]
+
+[resource]
+script = ExtResource("3_5hup6")
+max_health = 5
+combatant_name = "Slime"
+attacks = Array[ExtResource("1_iyrut")]([ExtResource("2_5hup6")])
+scene = "uid://bt3qq50ynxnfx"
+atk = 1
+metadata/_custom_type_script = "uid://dnh8cbo0d0ywu"

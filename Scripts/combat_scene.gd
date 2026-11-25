@@ -49,6 +49,10 @@ func cont():
 		SceneLoader.load_scene(post_battle_scene)
 		return
 	turn_index += 1
+	for i in allies:
+		i.mana += 1
+		if i.mana > 5:
+			i.mana = 5
 	if turn_index > len(all_combatants)-1:
 		turn_index = 0
 	assign_turn()
@@ -56,14 +60,20 @@ func cont():
 func assign_turn():
 	if all_combatants[turn_index].resource.is_enemy == true:
 		enemy_action(all_combatants[turn_index])
+		interface.mana_label.visible = false
 	else:
 		interface.selected_ally = all_combatants[turn_index]
 		interface.display_actions()
+		interface.mana_label.visible = true
 
 func begin_combat():
 	generate_player()
+	for i in PlayerData.allies:
+		generate_ally(i)
 	for i in PlayerData.current_enemies:
 		generate_enemy(i)
+	for i in allies:
+		i.mana = 5
 
 func enemy_action(enemy:Node2D):
 	var randomIndex = randi_range(0,len(enemy.resource.attacks)-1) 
@@ -89,12 +99,26 @@ func generate_enemy(index):
 	all_combatants.append(new_combatant)
 	enemycount += 1
 
+func generate_ally(index):
+	var new_combatant = combatant_scene.instantiate()
+	self.add_child(new_combatant)
+	var newally = load(index.scene).instantiate()
+	new_combatant.add_child(newally)
+	new_combatant.position = player_pos.position + Vector2(-70*len(allies),5)
+	var new_display = health_display.instantiate()
+	self.add_child(new_display)
+	new_display.position = new_combatant.position + Vector2(0,20)
+	new_combatant.setup(new_display,index,self,newally.get_node("AnimatedSprite2D"))
+	add_shadow(newally)
+	allies.append(new_combatant)
+	all_combatants.append(new_combatant)
+
 func generate_player():
 	var new_combatant = combatant_scene.instantiate()
 	self.add_child(new_combatant)
 	var newplayer = load(PlayerData.current_slime.scene).instantiate()
 	new_combatant.add_child(newplayer)
-	new_combatant.position = player_pos.position
+	new_combatant.position = player_pos.position + Vector2(len(allies)*-70,0)
 	var new_display = health_display.instantiate()
 	self.add_child(new_display)
 	new_display.position = new_combatant.position + Vector2(0,20)

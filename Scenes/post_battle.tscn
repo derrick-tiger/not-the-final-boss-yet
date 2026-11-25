@@ -17,10 +17,12 @@ border_color = Color(1, 1, 1, 1)
 [node name="PostBattle" type="CanvasLayer" unique_id=455426208]
 script = ExtResource("1_q1jey")
 chars_per_second = 15.0
+card_burn_speed = 3.0
 card_scene = ExtResource("2_3x6ug")
 prep_scene = "uid://cn5m18sfm47rj"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=240251068]
+z_index = -3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -89,7 +91,7 @@ offset_left = -0.040000916
 offset_top = -0.020002365
 offset_right = 0.35998535
 offset_bottom = 79.979996
-theme_override_constants/separation = 80
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Confirm" type="Button" parent="." unique_id=1674559553]

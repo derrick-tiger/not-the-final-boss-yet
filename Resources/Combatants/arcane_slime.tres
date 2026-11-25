@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cc7krldh2c0lj" path="res://Scripts/Attack.gd" id="1_lkyli"]
 [ext_resource type="Script" uid="uid://cy8njhqg7lucs" path="res://ItemData.gd" id="2_c5ki1"]
+[ext_resource type="Resource" uid="uid://tsk3m1pijti7" path="res://Resources/Attacks/arcane_blast.tres" id="2_ohqja"]
 [ext_resource type="Script" uid="uid://dnh8cbo0d0ywu" path="res://Scripts/combatantresource.gd" id="3_ohqja"]
 
 [resource]
@@ -9,6 +10,7 @@ script = ExtResource("3_ohqja")
 max_health = 12
 level = 3
 combatant_name = "Arcane slime"
+attacks = Array[ExtResource("1_lkyli")]([ExtResource("2_ohqja")])
 scene = "uid://dg1op4cjf3dmt"
 atk = 3
 def = 2

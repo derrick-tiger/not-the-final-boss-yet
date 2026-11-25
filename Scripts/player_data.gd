@@ -6,6 +6,7 @@ var current_enemies : Array[CombatantResource]
 var next_evolution : Array[String]
 var atk_bonus : int = 0
 var def_bonus : int = 0
+var allies : Array[CombatantResource]
 
 var defenses : Array[DefenseData]
 var unlocked_defenses : Array[DefenseData]
@@ -14,7 +15,7 @@ var gold : int = 0
 
 var inventory : Dictionary[ItemData,int]
 
-
+var enemy_evolution : Array[EnemyWaveData]
 
 var outcome_victory : bool = false
 #give the player a free upgrade at the start of the game

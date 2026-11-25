@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://mab4lobwvkkf" path="res://Sprites/simpleshadow.png" id="3_lt7kh"]
 [ext_resource type="Texture2D" uid="uid://666g7w8n7kfa" path="res://Images/panel.png" id="4_5v1xs"]
 [ext_resource type="Texture2D" uid="uid://cyl3dia3i2f37" path="res://Images/Dungeonplatform.png" id="6_5v1xs"]
+[ext_resource type="Script" path="res://Scripts/shake_camera.gd" id="7_shake"]
 
 [node name="Dungeon" type="Node2D" unique_id=1558878320]
 script = ExtResource("1_iqbxe")
@@ -90,6 +91,7 @@ autowrap_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1446047055]
 position = Vector2(-30, 0)
+script = ExtResource("7_shake")
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D" unique_id=2071817368]
 z_index = -3

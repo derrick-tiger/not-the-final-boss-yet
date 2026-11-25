@@ -25,7 +25,7 @@ vertical_icon_alignment = 0
 expand_icon = true
 script = ExtResource("1_h8b3c")
 
-[node name="Label" type="Label" parent="." unique_id=957792383]
+[node name="NameLabel" type="Label" parent="." unique_id=957792383]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5

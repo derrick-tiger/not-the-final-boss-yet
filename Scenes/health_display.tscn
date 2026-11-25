@@ -67,9 +67,9 @@ anchor_left = 0.060000002
 anchor_right = 0.5
 anchor_bottom = 0.45000002
 offset_left = -0.040000916
-offset_top = 1.0
-offset_right = 3.2799988
-theme_override_font_sizes/font_size = 6
+offset_top = 2.0
+offset_right = 5.200001
+theme_override_font_sizes/font_size = 5
 text = "Lvl 1 slime"
 
 [node name="HealthLabel" type="Label" parent="Panel" unique_id=928734749]

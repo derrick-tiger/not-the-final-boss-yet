@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CombatantResource" format=3 uid="uid://b2uy4xdrfxb2h"]
+
+[ext_resource type="Script" uid="uid://cc7krldh2c0lj" path="res://Scripts/Attack.gd" id="1_4lukp"]
+[ext_resource type="Script" uid="uid://cy8njhqg7lucs" path="res://ItemData.gd" id="2_nyg44"]
+[ext_resource type="Script" uid="uid://dnh8cbo0d0ywu" path="res://Scripts/combatantresource.gd" id="3_27si3"]
+
+[resource]
+script = ExtResource("3_27si3")
+max_health = 10
+level = 4
+combatant_name = "Volcano slime"
+scene = "uid://f2j4coefy5a4"
+atk = 4
+def = 1
+metadata/_custom_type_script = "uid://dnh8cbo0d0ywu"

@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="DefenseData" format=3 uid="uid://k42fo4onvwv0"]
+
+[ext_resource type="Texture2D" uid="uid://cnvic1p87qfrh" path="res://Sprites/LavaPit-Sheet.png" id="1_srqx3"]
+[ext_resource type="Script" uid="uid://ck8gu3fbvnoq4" path="res://DefenseData.gd" id="2_tjtuk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjtuk"]
+atlas = ExtResource("1_srqx3")
+region = Rect2(36, 0, 36, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf58c"]
+atlas = ExtResource("1_srqx3")
+region = Rect2(0, 0, 36, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjtuk")
+}],
+"loop": 1,
+"name": &"activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf58c")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("2_tjtuk")
+name = "Lava pit"
+cost = 10
+m_damage = 3
+frames = SubResource("SpriteFrames_g4v7s")
+metadata/_custom_type_script = "uid://ck8gu3fbvnoq4"

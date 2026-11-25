@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cfalimnl70y7"]
+
+[ext_resource type="Script" uid="uid://dnh8cbo0d0ywu" path="res://Scripts/combatantresource.gd" id="1_cwmq8"]
+[ext_resource type="Script" uid="uid://cc7krldh2c0lj" path="res://Scripts/Attack.gd" id="2_cwmq8"]
+[ext_resource type="Resource" uid="uid://bj24kkpnwkxd7" path="res://Resources/Combatants/slime.tres" id="2_ud4tg"]
+[ext_resource type="Texture2D" uid="uid://dhxa1apy1vj03" path="res://Images/Multiplication.png" id="3_cefie"]
+[ext_resource type="Script" uid="uid://bkxejnuqbv8vr" path="res://card_data.gd" id="3_ud4tg"]
+
+[resource]
+script = ExtResource("3_ud4tg")
+card_image = ExtResource("3_cefie")
+card_name = "Multiply"
+description = "Gain ally \"Slime\" ( 2x ), gain 1 atk"
+atk_bonus = 2
+ally_list = Array[ExtResource("1_cwmq8")]([ExtResource("2_ud4tg"), ExtResource("2_ud4tg")])
+metadata/_custom_type_script = "uid://bkxejnuqbv8vr"

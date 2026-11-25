@@ -7,26 +7,46 @@
 [ext_resource type="Resource" uid="uid://ckvfv7sbaednu" path="res://Resources/Attacks/lunge.tres" id="4_lhlgy"]
 [ext_resource type="Script" uid="uid://cy8njhqg7lucs" path="res://ItemData.gd" id="4_mabpb"]
 [ext_resource type="Script" uid="uid://ck8gu3fbvnoq4" path="res://DefenseData.gd" id="5_lqndd"]
+[ext_resource type="Resource" uid="uid://bp3tnu2pqw5b3" path="res://Resources/Attacks/fire_ball.tres" id="5_yfqdd"]
+[ext_resource type="Resource" uid="uid://bj24kkpnwkxd7" path="res://Resources/Combatants/slime.tres" id="6_j1fnm"]
 [ext_resource type="Resource" uid="uid://dxfpbev33ahpw" path="res://Resources/Defenses/spike_trap.tres" id="6_lhlgy"]
 [ext_resource type="Resource" uid="uid://dgfjay7tq42fq" path="res://Resources/Combatants/knight.tres" id="7_lhlgy"]
 [ext_resource type="Resource" uid="uid://cy5assipj8if6" path="res://Resources/Items/small_vial.tres" id="10_lhlgy"]
+[ext_resource type="Script" uid="uid://bcqe6c38vqkou" path="res://enemy_wave_data.gd" id="10_vugo8"]
+[ext_resource type="Resource" uid="uid://k42fo4onvwv0" path="res://Resources/Defenses/lava_pit.tres" id="12_l40vn"]
+[ext_resource type="Resource" uid="uid://dyo7dp0ou68la" path="res://Resources/Combatants/blue_knight.tres" id="14_u7g7v"]
+[ext_resource type="Resource" uid="uid://ds0w13lwkqlx3" path="res://Resources/Combatants/dragon_knight.tres" id="16_hgvi4"]
+[ext_resource type="Resource" uid="uid://ct2nj8l7o8lxm" path="res://Resources/Combatants/final_knight.tres" id="17_pudfl"]
 
-[sub_resource type="Resource" id="Resource_4oswx"]
-script = ExtResource("4_krw16")
-max_health = 5
-combatant_name = "Slime"
-scene = "uid://bt3qq50ynxnfx"
-atk = 1
-metadata/_custom_type_script = "uid://dnh8cbo0d0ywu"
+[sub_resource type="Resource" id="Resource_lqndd"]
+script = ExtResource("10_vugo8")
+wave = Array[ExtResource("4_krw16")]([ExtResource("7_lhlgy")])
+metadata/_custom_type_script = "uid://bcqe6c38vqkou"
+
+[sub_resource type="Resource" id="Resource_v8ig0"]
+script = ExtResource("10_vugo8")
+wave = Array[ExtResource("4_krw16")]([ExtResource("14_u7g7v")])
+trap_unlocks = Array[ExtResource("5_lqndd")]([ExtResource("12_l40vn")])
+metadata/_custom_type_script = "uid://bcqe6c38vqkou"
+
+[sub_resource type="Resource" id="Resource_dfopw"]
+script = ExtResource("10_vugo8")
+wave = Array[ExtResource("4_krw16")]([ExtResource("16_hgvi4")])
+metadata/_custom_type_script = "uid://bcqe6c38vqkou"
+
+[sub_resource type="Resource" id="Resource_5rvoj"]
+script = ExtResource("10_vugo8")
+wave = Array[ExtResource("4_krw16")]([ExtResource("17_pudfl")])
+metadata/_custom_type_script = "uid://bcqe6c38vqkou"
 
 [node name="GameSession" type="Node" unique_id=1904851458]
 script = ExtResource("1_script")
 main_menu_scene = ExtResource("2_menu")
-starting_moves = Array[ExtResource("3_pbfqv")]([ExtResource("4_lhlgy")])
-starting_slime = SubResource("Resource_4oswx")
-starting_enemies = Array[ExtResource("4_krw16")]([ExtResource("7_lhlgy")])
+starting_moves = Array[ExtResource("3_pbfqv")]([ExtResource("4_lhlgy"), ExtResource("5_yfqdd")])
+starting_slime = ExtResource("6_j1fnm")
 starting_defenses = Array[ExtResource("5_lqndd")]([ExtResource("6_lhlgy")])
 starting_evolutions = Array[String](["uid://cv5swgvd24b7a", "uid://vfw4agbjr467"])
 starting_inventory = Dictionary[ExtResource("4_mabpb"), int]({
 ExtResource("10_lhlgy"): 1
 })
+enemy_waves = Array[ExtResource("10_vugo8")]([SubResource("Resource_lqndd"), SubResource("Resource_v8ig0"), SubResource("Resource_dfopw"), SubResource("Resource_5rvoj")])

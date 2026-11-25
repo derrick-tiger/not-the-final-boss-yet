@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://f54hsdh1u5t1"]
+
+[ext_resource type="Texture2D" uid="uid://dr7twtp2by2th" path="res://Sprites/ThunderSlime-Sheet.png" id="1_dnd3k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4k7t"]
+atlas = ExtResource("1_dnd3k")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvp4k"]
+atlas = ExtResource("1_dnd3k")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnmrt"]
+atlas = ExtResource("1_dnd3k")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gia5v"]
+atlas = ExtResource("1_dnd3k")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rpqav"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4k7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvp4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnmrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gia5v")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[node name="Player" type="Node2D" unique_id=415433036]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1336834070]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_rpqav")
+animation = &"idle"
+autoplay = "idle"
+frame = 1
+frame_progress = 0.8194337

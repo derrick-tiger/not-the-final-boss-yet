@@ -7,6 +7,8 @@ extends Node2D
 @onready var path : = $Path
 @onready var camera : = $Camera2D
 @onready var gold_label : = $CanvasLayer/Control/MoneyLabel
+@onready var sell_button : = $CanvasLayer/Control/Sell
+
 
 @export var platform : PackedScene
 @export var defense_button : PackedScene
@@ -15,6 +17,8 @@ var _tween : Tween
 var chars_per_second : float = 15
 
 var selected_defense : DefenseData
+
+var sell_mode : bool
 
 @export_file("*.tscn") var dungeon_scene : String
 
@@ -57,7 +61,6 @@ func setup():
 		var new_plot = platform.instantiate()
 		add_child(new_plot)
 		new_plot.position = Vector2(-133+(i+1)*256,0)
-		new_plot.clicked.connect(confirm_building)
 		var existing_defense = null
 		if len(PlayerData.defenses) > i:
 			existing_defense = PlayerData.defenses[i] 
@@ -89,3 +92,10 @@ func _process(delta: float) -> void:
 
 func _on_done_pressed() -> void:
 	SceneLoader.load_scene(dungeon_scene)
+
+func _on_sell_pressed() -> void:
+	sell_mode = not sell_mode
+	if sell_mode == true:
+		sell_button.text = "Sell mode : on"
+	else:
+		sell_button.text = "Sell mode : off"

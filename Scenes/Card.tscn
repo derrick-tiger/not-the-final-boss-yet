@@ -3,7 +3,27 @@
 [ext_resource type="Texture2D" uid="uid://cugveshl81m2g" path="res://Images/Card.png" id="1_pnb5n"]
 [ext_resource type="Script" uid="uid://dp133r1fcr1jr" path="res://Scripts/card.gd" id="2_3p273"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3p273"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
 [node name="Card" type="Control" unique_id=1727217430]
+custom_minimum_size = Vector2(60, 80)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 60.0
@@ -65,3 +85,33 @@ theme_override_font_sizes/font_size = 4
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Outline" type="Panel" parent="." unique_id=330500268]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -41.0
+offset_right = 31.0
+offset_bottom = 41.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
+
+[node name="Button" type="Button" parent="." unique_id=854372244]
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_right = 30.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_yf5fn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yf5fn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3p273")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

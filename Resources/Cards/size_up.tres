@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://vfw4agbjr467"]
 
 [ext_resource type="Texture2D" uid="uid://bcqry1y57hsb4" path="res://Images/cardart/Sizeup.png" id="1_72hlm"]
+[ext_resource type="Script" uid="uid://dnh8cbo0d0ywu" path="res://Scripts/combatantresource.gd" id="1_u5huq"]
 [ext_resource type="Script" uid="uid://cc7krldh2c0lj" path="res://Scripts/Attack.gd" id="2_clqtr"]
 [ext_resource type="Script" uid="uid://bkxejnuqbv8vr" path="res://card_data.gd" id="2_ulp1p"]
 [ext_resource type="Resource" uid="uid://fkwh4jjgc4cg" path="res://Resources/Combatants/large_slime.tres" id="4_clqtr"]
@@ -12,4 +13,5 @@ card_name = "Size up"
 slime = ExtResource("4_clqtr")
 description = "Evolve into large slime, gain 1 ATK"
 atk_bonus = 1
+evolutions = Array[String](["uid://dhdkvfuhea146", "uid://cfalimnl70y7"])
 metadata/_custom_type_script = "uid://bkxejnuqbv8vr"

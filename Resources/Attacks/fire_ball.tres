@@ -1,12 +1,52 @@
 [gd_resource type="Resource" script_class="AttackResource" format=3 uid="uid://bp3tnu2pqw5b3"]
 
 [ext_resource type="Script" uid="uid://cc7krldh2c0lj" path="res://Scripts/Attack.gd" id="1_enutv"]
+[ext_resource type="Texture2D" uid="uid://djsy1nmsjfbui" path="res://Sprites/fireball.png" id="1_g1c04"]
+[ext_resource type="Texture2D" uid="uid://c1wjfhsfg8ywc" path="res://Sprites/FireHit-Sheet.png" id="1_v7x73"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohs5d"]
+atlas = ExtResource("1_v7x73")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evlvc"]
+atlas = ExtResource("1_v7x73")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yvhy"]
+atlas = ExtResource("1_v7x73")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m15c1"]
+atlas = ExtResource("1_v7x73")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7sen"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohs5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evlvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yvhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m15c1")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 15.0
+}]
 
 [resource]
 script = ExtResource("1_enutv")
 name = "Fireball"
-damage = 3
+damage = 9999
 crit_bonus = 2
 mana_cost = 2
 attack_type = 1
+fx_frames = SubResource("SpriteFrames_n7sen")
+projectile = ExtResource("1_g1c04")
 metadata/_custom_type_script = "uid://cc7krldh2c0lj"

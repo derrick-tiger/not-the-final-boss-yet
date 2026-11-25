@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CombatantResource" format=3 uid="uid://dyo7dp0ou68la"]
+
+[ext_resource type="Script" uid="uid://cc7krldh2c0lj" path="res://Scripts/Attack.gd" id="1_an8du"]
+[ext_resource type="Resource" uid="uid://cu076kpotmebu" path="res://Resources/Attacks/hero_cut.tres" id="2_7ka8l"]
+[ext_resource type="Script" uid="uid://cy8njhqg7lucs" path="res://ItemData.gd" id="3_dfb7p"]
+[ext_resource type="Script" uid="uid://dnh8cbo0d0ywu" path="res://Scripts/combatantresource.gd" id="4_aoiov"]
+[ext_resource type="SpriteFrames" uid="uid://bt5t3p55b7pu4" path="res://Resources/Frames/knight_simple.tres" id="5_02tt1"]
+
+[resource]
+script = ExtResource("4_aoiov")
+max_health = 20
+level = 3
+combatant_name = "Knight"
+is_enemy = true
+attacks = Array[ExtResource("1_an8du")]([ExtResource("2_7ka8l")])
+scene = "uid://60hxip17kucr"
+simplified_frames = ExtResource("5_02tt1")
+atk = 3
+def = 3
+metadata/_custom_type_script = "uid://dnh8cbo0d0ywu"

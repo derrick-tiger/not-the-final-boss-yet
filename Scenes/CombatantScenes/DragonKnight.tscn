@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bv5cskpji2mb2"]
+
+[ext_resource type="Texture2D" uid="uid://bbk8pvg8v715w" path="res://Sprites/DragonKnight-Sheet.png" id="1_4r7yq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epvbi"]
+atlas = ExtResource("1_4r7yq")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jc76"]
+atlas = ExtResource("1_4r7yq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhjnp"]
+atlas = ExtResource("1_4r7yq")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u1her"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epvbi")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jc76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhjnp")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[node name="Knight" type="Node2D" unique_id=1073877458]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=90073939]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_u1her")
+animation = &"idle"
+autoplay = "idle"
